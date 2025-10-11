@@ -84,8 +84,23 @@ with col1:
 with col2:
     page_name = st.text_input("نام پیج اینستاگرام را وارد کنید:")
 
+# دکمه سبز اینتر برای تحلیل
 if page_name:
-    if st.button("✅ اینتر", type="primary"):
+    st.markdown("""
+    <style>
+    .enter-button {
+        background-color: #27ae60;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-weight: bold;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
+    if st.button("✅ اینتر"):
         full_name = f"@{page_name}"
         st.success(f"در حال بررسی پیج {full_name} ...")
 
@@ -104,4 +119,3 @@ if page_name:
         st.markdown("### 📈 راهکارهای پیشنهادی برای رشد پیج:")
         for tip in tips:
             st.markdown(f"- {tip}")
-        
